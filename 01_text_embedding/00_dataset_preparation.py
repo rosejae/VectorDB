@@ -42,6 +42,7 @@ df = flat_df.drop_duplicates("id")
 df.loc[:, "duplicated_questions"] = df["id"].apply(lambda qid: flat_df[flat_df["id"] == qid]["dq_id"].tolist())
 df = df.drop(columns=["dq_id", "is_duplicate"])
 df.loc[:, 'length'] = [len(x) for x in df['duplicated_questions']]
+df.to_csv("quora_dataset.csv")
 
 #
 # abcnews dataset
